@@ -1,9 +1,14 @@
 "use strict"
 
-let x = undefined;
+// find element via id
+let button = document.querySelector("#btn-calculate")
+let number1 = document.querySelector("#num1")
 
-alert("Hello")
+function showNumber(){
+    console.log(number1.value, number1.valueAsNumber);
+}
 
-console.log(typeof(alert))
-
-console.log(typeof(x))
+button.onclick = function (event) {
+    console.log("button clicked");
+    showNumber()
+}
