@@ -1,3 +1,4 @@
+"use strict"
 
 let calculator = {
     display: "0",
@@ -44,7 +45,6 @@ function completeOperation() {
         case "/":
             calculator.first /= second;
             break;
-
     }
     calculator.waitingSecondOperand = true;
     calculator.operator = null;
@@ -96,7 +96,6 @@ numpad.addEventListener('click', function (event) {
             }
         }
     }
-
 });
 
 write();
