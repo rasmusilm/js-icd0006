@@ -1,1 +1,2 @@
 npx webpack serve
+npx tailwind -i ./public/calculator.css -o ./dist/comp.css --watch
