@@ -1,5 +1,3 @@
-"use strict"
-
 import Calculator from "./Calculator";
 
 export default class CalculatorUI {
@@ -111,5 +109,4 @@ export default class CalculatorUI {
             console.log(typeof event.target);
         }
     }
-
 }

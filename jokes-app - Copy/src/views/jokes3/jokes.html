@@ -1,0 +1,6 @@
+<div class="content-background">
+    <h3 class="capitalize">${state.categories[2]}</h3>
+    <p repeat.for="joke of jokes">
+        <a href="${joke.url}"><img src="${joke.icon_url}"></a> ${joke.value}
+    </p>
+</div>

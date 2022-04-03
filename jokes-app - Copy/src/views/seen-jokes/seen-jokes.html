@@ -1,0 +1,4 @@
+<h3>Seen jokes</h3>
+<p repeat.for="joke of state.seen_jokes">
+    <a href="${joke.url}"><img src="${joke.icon_url}"></a> ${joke.value}
+</p>
