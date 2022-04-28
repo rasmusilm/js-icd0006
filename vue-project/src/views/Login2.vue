@@ -27,7 +27,7 @@ import router from "@/router";
   emits: [],
 })
 // @ts-ignore
-export default  class Login extends Vue{
+export default class Login extends Vue {
   email: string = "rasmus.ilmjarv@gmail.com";
   password: string = "Hea.Parool.1";
   identityStore = useIdentityStore();
@@ -41,7 +41,7 @@ export default  class Login extends Vue{
     console.log(res.data!);
     this.identityStore.identify(res.data!);
 
-    router.push("/");
+    router.push("/feed");
   }
 }
 </script>

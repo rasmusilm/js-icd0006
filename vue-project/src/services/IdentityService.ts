@@ -1,6 +1,6 @@
 import {useIdentityStore} from "@/stores/identityStore";
 import type {IJWTResponse} from "@/domain/IJWTResponse";
-import type {IServiceResult} from "@/services/IServiceResult";
+import type {IServiceResult} from "@/services/base/IServiceResult";
 // @ts-ignore
 import type { AxiosError } from "axios";
 // @ts-ignore
@@ -24,6 +24,7 @@ export class IdentityService {
         } catch (e) {
             let response = {
                 status: (e as AxiosError).response!.status,
+                // @ts-ignore
                 errorMsg: (e as AxiosError).response!.data.error,
             }
 
@@ -53,6 +54,7 @@ export class IdentityService {
         } catch (e) {
             let response = {
                 status: (e as AxiosError).response!.status,
+                // @ts-ignore
                 errorMsg: (e as AxiosError).response!.data.error,
             }
 
