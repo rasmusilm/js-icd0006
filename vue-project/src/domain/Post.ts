@@ -1,7 +1,7 @@
 export interface Post {
     Id: string;
-    Title: string;
-    Text: string;
+    title: string;
+    explanation: string;
     PostedAt: string;
     Edited: boolean;
     Deleted: boolean;
@@ -9,7 +9,7 @@ export interface Post {
     difficulty: string;
     userId: string;
     User: User;
-    Rating: number;
+    rating: number;
 }
 
 interface User {

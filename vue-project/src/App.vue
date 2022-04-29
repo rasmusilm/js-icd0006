@@ -12,21 +12,37 @@ var user = identityStore.$state.identified;
 
 <template>
   <header>
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-      <span v-if="!identityStore.$state.identified">
-        <RouterLink to="/register">Register</RouterLink>
-        <RouterLink to="/login">Login</RouterLink>
-      </span>
-      <span v-if="identityStore.$state.identified">
-        <span v-on:click="logout">Logout</span>
-      </span>
-    </nav>
+
   </header>
+  <nav>
+    <ul class="navigation-list">
+      <li>
+        <RouterLink to="/" class="nav-item">Home</RouterLink>
+      </li>
+      <li>
+        <RouterLink to="/about" class="nav-item">About</RouterLink>
+      </li>
+      <span v-if="!identityStore.$state.identified" class="identity">
+        <li>
+          <RouterLink to="/register" class="nav-item">Register</RouterLink>
+        </li>
+        <li>
+          <RouterLink class="nav-item" to="/login">Login</RouterLink>
+        </li>
+      </span>
+
+      <span v-if="identityStore.$state.identified" class="identity">
+        <li>
+          <span v-on:click="logout" class="nav-item">Logout</span>
+        </li>
+      </span>
+    </ul>
+
+  </nav>
   <RouterView />
 </template>
 
 <style>
-@import '@/assets/base.css';
+  @import '@/assets/base.css';
+  @import '@/assets/content-structure.css';
 </style>

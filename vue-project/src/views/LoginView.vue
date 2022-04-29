@@ -1,9 +1,14 @@
 <template>
-  <input v-model="username" type="text" placeholder="Username" id="login-username">
-  <br />
-  <input v-model="password" type="password" placeholder="password">
-  <br/>
-  <input type="submit" @click="login" value="Login">
+  <div class="id-container">
+    <div class="id-field">
+      <input v-model="username" type="text" placeholder="Username" id="login-username">
+      <br />
+      <input v-model="password" type="password" placeholder="password">
+      <br/>
+      <input type="submit" @click="login" value="Login">
+    </div>
+  </div>
+
 </template>
 
 <script lang="ts">
