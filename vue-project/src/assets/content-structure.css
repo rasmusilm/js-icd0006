@@ -107,6 +107,7 @@ footer {
     width: 80%;
     align-self: center;
     margin: auto;
+    min-height: 80vh;
     /*border: 1px solid white;*/
 }
 
@@ -115,5 +116,35 @@ footer {
     width: 20%;
     align-self: flex-end;
     margin: auto;
+    height: 80vh;
     /*border: 1px solid white;*/
+}
+
+.edge-box {
+    margin-top: 2rem;
+    background: #363535;
+    border: 1px solid #3f2525;
+    border-radius: 20px;
+    padding: 1rem;
+    justify-content: center;
+
+}
+
+.centered-text {
+    text-align: center;
+}
+
+.edge-box-button {
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    padding-top: 0.5rem;
+}
+
+.edge-box-link {
+    text-align: center;
+    color: white;
+    text-decoration: none;
 }

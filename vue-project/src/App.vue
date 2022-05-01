@@ -2,10 +2,13 @@
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from '@/components/HelloWorld.vue'
 import {useIdentityStore} from "@/stores/identityStore";
+import router from "@/router";
 var identityStore = useIdentityStore();
 var logout = () => {
   console.log("logging out");
   identityStore.forget();
+  router.push("/login");
+  console.log("logged out")
 }
 var user = identityStore.$state.identified;
 </script>
@@ -17,7 +20,7 @@ var user = identityStore.$state.identified;
   <nav>
     <ul class="navigation-list">
       <li>
-        <RouterLink to="/" class="nav-item">Home</RouterLink>
+        <RouterLink to="/feed" class="nav-item">Home</RouterLink>
       </li>
       <li>
         <RouterLink to="/about" class="nav-item">About</RouterLink>

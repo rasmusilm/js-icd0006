@@ -1,6 +1,17 @@
 <template>
   <div class="app-page-flex-container">
     <div class="app-page-content">
+      <div class="post-container content">
+        <div class="post-title-container">
+          <span class="post-title post-text">Post a new project</span>
+        </div>
+        <div class="new-post-entry-container">
+          <input type="text" class="new-post-entry" placeholder="Your new idea">
+          <RouterLink to="/feed" class="new-post-entry-button">
+            To Posting
+          </RouterLink>
+        </div>
+      </div>
       <div v-for="post of postStore.$state.posts" class="post-container content">
         <div class="post-title-container">
           <span class="post-title post-text">{{ post.title }}</span>
@@ -17,7 +28,17 @@
       </div>
     </div>
     <div class="app-page-edge">
-      <span style="color: #f1f1f1">Here</span>
+      <div class="edge-box">
+        <div class="edge-box-button">
+          <RouterLink to="/" class="edge-box-link">here</RouterLink>
+        </div>
+        <div class="edge-box-button">
+          <RouterLink to="/" class="edge-box-link">here</RouterLink>
+        </div>
+        <div class="edge-box-button">
+          <RouterLink to="/" class="edge-box-link">here</RouterLink>
+        </div>
+      </div>
     </div>
 
   </div>
@@ -45,6 +66,7 @@ export default class MainFeed extends Vue {
   postService = new PostService();
   postStore = usePostsStore();
   ratingService = new RatingService();
+  newPostTitle = "";
 
   async mounted(): Promise<void> {
     await this.load()
@@ -62,10 +84,15 @@ export default class MainFeed extends Vue {
   async rate(rating: number, id: string): Promise<void> {
     console.log("rating")
     console.log(rating, id)
+    this.postStore.index(id);
     await this.ratingService.add({
       ProjectIdeaId: id,
       Rating: rating,
       UserId: id
+    })
+    let post = await this.postService.get(id);
+    this.postStore.$patch((state) => {
+      state.posts[state.indexToUpdate!].rating = post.rating;
     })
   }
 }
@@ -73,12 +100,17 @@ export default class MainFeed extends Vue {
 
 <style scoped>
 .post-container {
+  background: #363535;
   margin-top: 2rem;
   margin-bottom: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: left;
   flex-wrap: wrap;
+  padding-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  border: 1px solid #3f2525;
+  border-radius: 20px;
   /*border: 1px solid white;*/
 }
 
@@ -110,5 +142,39 @@ export default class MainFeed extends Vue {
   justify-content: right;
   display: flex;
   /*border: 1px solid white;*/
+}
+
+.new-post-entry-container {
+  display: flex;
+  border: 1px solid #2a2a2a;
+  background: #363535;
+  border-radius: 0.6rem;
+  border-image: fill;
+  width: 93%;
+}
+
+.new-post-entry {
+  flex-grow: 8;
+  font-size: 1.5rem;
+  padding: 0.5rem 0.1rem 0.5rem 0.5rem;
+  /*padding-bottom: 0.3rem;*/
+  background: #3a3939;
+  border-color: transparent;
+  border-radius: 0.6rem;
+  border-image: fill;
+  width: 60%;
+}
+
+.new-post-entry-button {
+  flex-grow: 2;
+  border: 1px solid #2a2a2a;
+  border-radius: 0.6rem;
+  padding-bottom: 0.4rem;
+  text-align: center;
+  background: #2e4d2c;
+  font-size: 1.7rem;
+  max-width: 30%;
+  text-decoration: none;
+  color: #263f24;
 }
 </style>
