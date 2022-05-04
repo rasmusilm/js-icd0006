@@ -10,6 +10,7 @@ export interface Post {
     userId: string;
     User: User;
     rating: number;
+    tagIds: string[];
 }
 
 interface User {

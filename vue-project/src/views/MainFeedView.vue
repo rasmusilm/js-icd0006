@@ -25,6 +25,9 @@
         <div class="under-text">
           <span class="post-text post-content">{{ post.explanation }}</span>
         </div>
+        <div class="tag-container">
+          <span class="post-tag" v-for="id of post.tagIds">{{ getTagById(id) }}</span>
+        </div>
       </div>
     </div>
     <div class="app-page-edge">
@@ -53,6 +56,9 @@ import type {Post} from "@/domain/Post";
 import {PostService} from "@/services/Posts";
 import {usePostsStore} from "@/stores/posts";
 import {RatingService} from "@/services/Ratings";
+import {useTagStore} from "@/stores/tagstore";
+import {TagsService} from "@/services/Tags";
+import type {Tag} from "@/domain/Tag";
 
 @Options({
   components: {
@@ -65,6 +71,8 @@ export default class MainFeed extends Vue {
   identityStore = useIdentityStore();
   postService = new PostService();
   postStore = usePostsStore();
+  tagStore = useTagStore();
+  tagService = new TagsService();
   ratingService = new RatingService();
   newPostTitle = "";
 
@@ -74,11 +82,18 @@ export default class MainFeed extends Vue {
 
   async load(): Promise<void> {
     this.postStore.$state.posts = await this.postService.getAll();
+    this.tagStore.addAll(await this.tagService.getAll());
   }
 
   refresh(): void {
     this.load()
     console.log(this.postStore.posts)
+  }
+
+  getTagById(id: string): string {
+    let res = "tag";
+    const tags = this.tagStore.tags.filter(t => t.id == id)
+    return tags[0].tagname["en-GB"]
   }
 
   async rate(rating: number, id: string): Promise<void> {
@@ -177,4 +192,51 @@ export default class MainFeed extends Vue {
   text-decoration: none;
   color: #263f24;
 }
+
+.post-tag {
+  color: #949191;
+  border: 1px solid #676f88;
+}
+
+.tag-container {
+  width: 100%;
+  display: flex;
+  margin-top: 1rem;
+}
+
+/*.post-tag{*/
+/*  position:relative;*/
+/*  margin:0 0.5rem 0 1rem;*/
+/*  display:inline-block;*/
+/*  height:1.1rem;*/
+/*  padding: 0 1.9rem 0 1.5rem;*/
+/*  font-size: 1.5rem;*/
+/*  line-height:4.0rem;*/
+/*  cursor: pointer;*/
+/*  font-weight: 10;*/
+/*  margin: 1.9px 2px;*/
+/*  background: #6c6b6b;*/
+/*  transition: background 0.3s;*/
+/*}*/
+
+/*.post-tag:after{*/
+/*  position:absolute;*/
+/*  content:"";*/
+/*  right:-1.25rem;*/
+/*  width: 0.1rem;*/
+/*  height:0rem;*/
+/*  border-left:1.1rem solid #f3f3f3;*/
+/*  border-top:  2rem solid transparent;*/
+/*  border-bottom: 2rem solid transparent;*/
+/*  transition: border 0.3s;*/
+/*}*/
+
+/*.post-tag:hover{*/
+/*  background: green;*/
+/*  color:#ffffff;*/
+/*}*/
+
+/*.post-tag:hover:after{*/
+/*  border-left-color:green;*/
+/*}*/
 </style>
