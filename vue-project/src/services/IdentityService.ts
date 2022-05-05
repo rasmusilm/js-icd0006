@@ -66,5 +66,33 @@ export class IdentityService {
         }
     }
 
+    async register(email: string, password: string, name: string): Promise<IServiceResult<IJWTResponse>> {
+        try {
+            let registerInfo = {
+                email,
+                password,
+                name
+            }
+
+            let response = await httpCLient.post("/identity/account/register", registerInfo);
+            return {
+                status: response.status,
+                data: response.data as IJWTResponse
+            };
+        } catch (e) {
+            let response = {
+                status: (e as AxiosError).response!.status,
+                // @ts-ignore
+                errors: (e as AxiosError).response!.data.errors,
+            }
+
+            console.log(response);
+
+            console.log((e as AxiosError).response);
+
+            return response;
+        }
+    }
+
 
 }
