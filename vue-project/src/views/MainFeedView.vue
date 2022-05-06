@@ -6,8 +6,8 @@
           <span class="post-title post-text">Post a new project</span>
         </div>
         <div class="new-post-entry-container">
-          <input type="text" class="new-post-entry" placeholder="Your new idea">
-          <RouterLink to="/feed" class="new-post-entry-button">
+          <input v-model="newPostTitle" type="text" class="new-post-entry" placeholder="Your new idea">
+          <RouterLink to="/newPost" class="new-post-entry-button" v-on:click="titlelog">
             To Posting
           </RouterLink>
         </div>
@@ -33,13 +33,13 @@
     <div class="app-page-edge">
       <div class="edge-box">
         <div class="edge-box-button">
-          <RouterLink to="/" class="edge-box-link">here</RouterLink>
+          <RouterLink to="/" class="edge-box-link">Feeds</RouterLink>
         </div>
         <div class="edge-box-button">
-          <RouterLink to="/" class="edge-box-link">here</RouterLink>
+          <RouterLink to="/" class="edge-box-link">feed1</RouterLink>
         </div>
         <div class="edge-box-button">
-          <RouterLink to="/" class="edge-box-link">here</RouterLink>
+          <RouterLink to="/" class="edge-box-link">feed2</RouterLink>
         </div>
       </div>
     </div>
@@ -61,8 +61,7 @@ import {TagsService} from "@/services/Tags";
 import type {Tag} from "@/domain/Tag";
 
 @Options({
-  components: {
-  },
+  components: {},
   props: {},
   emits: [],
 })
@@ -75,6 +74,10 @@ export default class MainFeed extends Vue {
   tagService = new TagsService();
   ratingService = new RatingService();
   newPostTitle = "";
+
+  titlelog(): void {
+    console.log(this.newPostTitle)
+  }
 
   async mounted(): Promise<void> {
     await this.load()

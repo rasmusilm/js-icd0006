@@ -8,7 +8,7 @@ export interface Post {
     complexity: string;
     difficulty: string;
     userId: string;
-    User: User;
+    User?: User;
     rating: number;
     tagIds: string[];
 }
