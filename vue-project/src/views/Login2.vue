@@ -9,7 +9,7 @@
         <label class="input-label" for="Password">Password</label>
         <input v-model="password" class="input-box" type="password" />
       </div>
-      <div class="">
+      <div>
         <input @click="login()" type="submit" value="Login" class="submit" />
       </div>
     </div>
