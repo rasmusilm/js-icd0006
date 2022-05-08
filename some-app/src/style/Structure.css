@@ -1,0 +1,150 @@
+li {
+    float: left;
+}
+
+nav {
+    width: 100%;
+}
+
+.navigation-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #212121;
+    border-radius: 0.7rem;
+}
+
+.nav-item {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.identity {
+    float: right;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+header {
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-family: "Courier New", Courier, monospace;
+    /*background-color: #f8f8f8;*/
+}
+
+footer {
+    background-color: #f2f2f2;
+    padding: 40px;
+    border-width: 1px;
+    border-top-color: #f3f3f3;
+    text-align: center;
+}
+
+.line {
+    background-color: black;
+    padding: 1px;
+}
+
+.contacthead {
+    text-align: center;
+    padding: 20px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.content {
+    flex-grow: 10;
+    width: 92%;
+    align-self: center;
+    margin: auto;
+}
+
+.edge {
+    flex-grow: 1;
+    width: 4%;
+    height: 100%;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.hidden-link {
+    color: #fff;
+}
+
+.app-page-flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.app-page-content {
+    flex-grow: 8;
+    width: 80%;
+    align-self: center;
+    margin: auto;
+    min-height: 80vh;
+    /*border: 1px solid white;*/
+}
+
+.app-page-edge {
+    flex-grow: 2;
+    width: 20%;
+    align-self: flex-end;
+    margin: auto;
+    height: 80vh;
+    /*border: 1px solid white;*/
+}
+
+.edge-box {
+    margin-top: 2rem;
+    background: #363535;
+    border: 1px solid #3f2525;
+    border-radius: 20px;
+    padding: 1rem;
+    justify-content: center;
+
+}
+
+.centered-text {
+    text-align: center;
+}
+
+.edge-box-button {
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    padding-top: 0.5rem;
+}
+
+.edge-box-link {
+    text-align: center;
+    color: white;
+    text-decoration: none;
+}

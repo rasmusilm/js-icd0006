@@ -14,7 +14,7 @@
         </span>
         <div v-if="seeTagSelection" class="new-post-tags-container">
           <span v-for="tag of unusedTags" v-on:click="addTag(tag.id)">
-            <span v-if="!post.tagIds.includes(tag)" class="post-tag">
+            <span v-if="!post.tagIds.includes(tag.id)" class="post-tag">
               {{tag.tagname["en-GB"]}}
             </span>
           </span>
@@ -45,6 +45,7 @@
 <script lang="ts">
 import {Options, Vue} from "vue-class-component";
 import type {Post} from "@/domain/Post"
+import type {Tag} from "@/domain/Tag"
 import {useTagStore} from "@/stores/tagstore";
 
 
@@ -65,7 +66,7 @@ export default class CreatePost extends Vue {
   };
   seeTagSelection = true
   tagStore = useTagStore();
-  unusedTags = [...this.tagStore.tags]
+  unusedTags: Tag[] = [...this.tagStore.tags]
 
   switchTagSelectionVisible() {
     this.seeTagSelection = !this.seeTagSelection

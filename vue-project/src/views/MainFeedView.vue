@@ -18,8 +18,8 @@
         </div>
         <div class="rating-container">
           <span v-for="i of 5">
-            <span class="rating" v-if="Math.round(post.rating) >= i" v-on:click="rate(i, post.id)">★</span>
-            <span class="rating" v-else v-on:click="rate(i, post.id)">☆</span>
+            <span class="rating" v-if="Math.round(post.rating) >= i" v-on:click="rate(i, post.Id)">★</span>
+            <span class="rating" v-else v-on:click="rate(i, post.Id)">☆</span>
           </span>
         </div>
         <div class="under-text">
