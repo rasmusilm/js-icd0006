@@ -3,11 +3,9 @@ import type {IJWTResponse} from "../domain/IJWTResponse";
 import type {IServiceResult} from "./IServiceResult";
 // @ts-ignore
 import type { AxiosError } from "axios";
-// @ts-ignore
-import httpCLient from "@/http-client";
+import httpCLient from "./HttpClient";
 
 export class IdentityService {
-    // identityStore = useIdentityStore();
 
     async login(email: string, password: string): Promise<IServiceResult<IJWTResponse>> {
         try {
@@ -36,14 +34,13 @@ export class IdentityService {
         }
     }
 
-    async refreshIdentity(): Promise<IServiceResult<IJWTResponse>> {
+    async refreshIdentity(jwt: IJWTResponse): Promise<IServiceResult<IJWTResponse>> {
         try {
-            // console.log(this.identityStore.$state.jwt);
 
             let response = await httpCLient.post("/identity/account/refreshtoken",
                 {
-                    // jwt: this.identityStore.$state.jwt?.token,
-                    // refreshToken: this.identityStore.$state.jwt?.refreshToken
+                    jwt: jwt.token,
+                    refreshToken: jwt.refreshToken
                 }
             );
             return {

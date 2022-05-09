@@ -1,0 +1,89 @@
+.post-container {
+    background: #363535;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex-wrap: wrap;
+    padding-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    border: 1px solid #3f2525;
+    border-radius: 20px;
+    /*border: 1px solid white;*/
+}
+
+.post-text {
+    color: #7d7c80;
+}
+
+.post-title {
+    font-size: 2rem;
+}
+
+.post-title-container {
+    width: 80%;
+    /*border: 1px solid white;*/
+}
+
+.under-text {
+    width: 90%;
+}
+
+.rating {
+    color: #32642c;
+    font-size: 1.5rem;
+}
+
+.rating-container {
+    width: 19%;
+    justify-self: right;
+    justify-content: right;
+    display: flex;
+    /*border: 1px solid white;*/
+}
+
+.new-post-entry-container {
+    display: flex;
+    border: 1px solid #2a2a2a;
+    background: #363535;
+    border-radius: 0.6rem;
+    border-image: fill;
+    width: 93%;
+}
+
+.new-post-entry {
+    flex-grow: 8;
+    font-size: 1.5rem;
+    padding: 0.5rem 0.1rem 0.5rem 0.5rem;
+    /*padding-bottom: 0.3rem;*/
+    background: #3a3939;
+    border-color: transparent;
+    border-radius: 0.6rem;
+    border-image: fill;
+    width: 60%;
+}
+
+.new-post-entry-button {
+    flex-grow: 2;
+    border: 1px solid #2a2a2a;
+    border-radius: 0.6rem;
+    padding-bottom: 0.4rem;
+    text-align: center;
+    background: #2e4d2c;
+    font-size: 1.7rem;
+    max-width: 30%;
+    text-decoration: none;
+    color: #263f24;
+}
+
+.post-tag {
+    color: #949191;
+    border: 1px solid #676f88;
+}
+
+.tag-container {
+    width: 100%;
+    display: flex;
+    margin-top: 1rem;
+}
