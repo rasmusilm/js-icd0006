@@ -21,7 +21,7 @@ export const usePostsStore = defineStore({
         },
         index(id: string) {
             for (let i = 0; i < this.posts.length; i++) {
-                if (this.posts[i].Id == id) {
+                if (this.posts[i].id == id) {
                     this.indexToUpdate = i;
                 }
             }
@@ -29,7 +29,7 @@ export const usePostsStore = defineStore({
         update(post: Post) {
             this.$patch((state) => {
                 for (let i = 0; i < state.posts.length; i++) {
-                    if (state.posts[i].Id == post.Id) {
+                    if (state.posts[i].id == post.id) {
                         state.posts[i] = post
                     }
                 }

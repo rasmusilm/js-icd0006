@@ -12,14 +12,15 @@
           </RouterLink>
         </div>
       </div>
-      <div v-for="post of postStore.$state.posts" class="post-container content">
+      <div v-for="post of postStore.posts" class="post-container content">
         <div class="post-title-container">
           <span class="post-title post-text">{{ post.title }}</span>
         </div>
+        <span class="post-text">{{post.id}}</span>
         <div class="rating-container">
           <span v-for="i of 5">
-            <span class="rating" v-if="Math.round(post.rating) >= i" v-on:click="rate(i, post.Id)">★</span>
-            <span class="rating" v-else v-on:click="rate(i, post.Id)">☆</span>
+            <span class="rating" v-if="Math.round(post.rating) >= i" v-on:click="rate(i, post.id)">★</span>
+            <span class="rating" v-else v-on:click="rate(i, post.id)">☆</span>
           </span>
         </div>
         <div class="under-text">
@@ -109,7 +110,9 @@ export default class MainFeed extends Vue {
       UserId: id
     })
     let post = await this.postService.get(id);
+    console.log(post)
     this.postStore.$patch((state) => {
+      console.log(state.indexToUpdate)
       state.posts[state.indexToUpdate!].rating = post.rating;
     })
   }

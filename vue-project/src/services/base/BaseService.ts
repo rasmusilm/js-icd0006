@@ -68,7 +68,7 @@ export class BaseService<TEntity> {
                 if (!this.identityStore.$state.jwt) return null as unknown as TEntity;
 
 
-                let response = await httpCLient.get(`/${this.path}`, {
+                let response = await httpCLient.get(`/${this.path}/${id}`, {
                     headers: {
                         "Authorization": "bearer " + this.identityStore.$state.jwt?.token
                     }

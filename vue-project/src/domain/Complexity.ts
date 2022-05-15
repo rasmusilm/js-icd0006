@@ -1,6 +1,6 @@
 import type {LangString} from "@/domain/Langrting";
 
-export interface Tag {
-    tagname: LangString;
+export interface Complexity {
     id: string;
+    name: LangString
 }
