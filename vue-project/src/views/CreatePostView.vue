@@ -52,7 +52,7 @@ import {useTagStore} from "@/stores/tagstore";
 export default class CreatePost extends Vue {
   title = "";
   post: Post = {
-    Id: "",
+    id: "",
     title: "Cool site for sharing coding ideas",
     explanation: "",
     PostedAt: "",

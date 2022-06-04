@@ -16,7 +16,7 @@
         <div class="post-title-container">
           <span class="post-title post-text">{{ post.title }}</span>
         </div>
-        <span class="post-text">{{post.id}}</span>
+<!--        <span class="post-text">{{post.id}}</span>-->
         <div class="rating-container">
           <span v-for="i of 5">
             <span class="rating" v-if="Math.round(post.rating) >= i" v-on:click="rate(i, post.id)">★</span>

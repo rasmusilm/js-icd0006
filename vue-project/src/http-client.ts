@@ -2,7 +2,7 @@
 import axios from "axios";
 
 export const httpCLient = axios.create({
-    baseURL: "https://localhost:7247/api",
+    baseURL: "https://distributedprojectplanner2022.azurewebsites.net/api/v1",
     headers: {
         "Content-type": "application/json"
     }

@@ -1,5 +1,5 @@
 import {BaseService} from "@/services/base/BaseService";
-import {Post} from "@/domain/Post";
+import type {Post} from "@/domain/Post";
 
 export class PostService extends BaseService<Post> {
     constructor() {
